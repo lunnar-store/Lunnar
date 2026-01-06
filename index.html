@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunnar - Store de Indicadores</title>
+    <!-- Tailwind CSS para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Fonte Google (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        lunnar: {
+                            dark: '#0f172a', // Slate 900
+                            card: '#1e293b', // Slate 800
+                            primary: '#10b981', // Emerald 500
+                            accent: '#3b82f6', // Blue 500
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #e2e8f0;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Scrollbar personalizada para o código */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+        .code-block {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-lunnar-primary selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="w-full py-6 px-6 md:px-12 flex justify-between items-center glass-card sticky top-0 z-40 border-b border-gray-800">
+        <div class="flex items-center gap-2">
+            <i data-lucide="moon" class="text-lunnar-primary w-8 h-8 fill-current"></i>
+            <span class="text-2xl font-bold tracking-tight text-white">LUNNAR</span>
+        </div>
+        <div class="hidden md:flex gap-6 text-sm font-medium text-gray-400">
+            <a href="#catalogo" class="hover:text-lunnar-primary transition-colors">Catálogo</a>
+        </div>
+        <a href="#catalogo" class="bg-lunnar-primary/10 text-lunnar-primary px-4 py-2 rounded-full text-sm font-semibold border border-lunnar-primary/20 hover:bg-lunnar-primary hover:text-white transition-all">
+            Ver Indicadores
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative px-6 py-20 md:py-32 text-center overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                Domine o Mercado com a <span class="text-transparent bg-clip-text bg-gradient-to-r from-lunnar-primary to-blue-500">Lunnar</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Indicadores exclusivos de alta precisão para TradingView. 
+                Ferramentas profissionais para traders que buscam consistência.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#catalogo" class="bg-lunnar-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-emerald-600 transition-colors shadow-lg shadow-lunnar-primary/20">
+                    Explorar Loja
+                </a>
+                <a href="https://wa.me/5582996519753" target="_blank" class="glass-card text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i> Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catálogo Section -->
+    <section id="catalogo" class="px-6 py-16 md:px-12 max-w-7xl mx-auto w-full">
+        <div class="flex items-center justify-between mb-10">
+            <h2 class="text-3xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="bar-chart-2" class="text-lunnar-primary"></i> Catálogo
+            </h2>
+            <span class="text-sm text-gray-500">8 Indicadores Disponíveis</span>
+        </div>
+
+        <!-- Grid de Produtos (Gerado via JS) -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Os cards serão inseridos aqui pelo JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-gray-800 bg-black/40 py-10 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
+                    <i data-lucide="moon" class="text-lunnar-primary w-5 h-5"></i>
+                    <span class="text-xl font-bold text-white">LUNNAR</span>
+                </div>
+                <p class="text-gray-500 text-sm">© 2026 Lunnar Indicators. Todos os direitos reservados.</p>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://instagram.com/_vctr01_" target="_blank" class="text-gray-400 hover:text-pink-500 transition-colors">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="https://wa.me/5582996519753" target="_blank" class="text-gray-400 hover:text-green-500 transition-colors">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL (Pop-up) -->
+    <div id="modal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-2xl bg-[#1e293b] text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-700">
+                
+                <!-- Header do Modal -->
+                <div class="bg-[#0f172a] px-4 py-4 sm:px-6 flex justify-between items-center border-b border-gray-700">
+                    <h3 class="text-lg font-semibold leading-6 text-white" id="modal-title">Detalhes do Indicador</h3>
+                    <button type="button" class="text-gray-400 hover:text-white" onclick="closeModal()">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <!-- Conteúdo do Modal -->
+                <div class="px-4 py-6 sm:px-6">
+                    <div id="modal-content">
+                        <!-- Conteúdo Dinâmico Aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification (Copiado com sucesso) -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-lunnar-primary text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-2">
+        <i data-lucide="check-circle" class="w-5 h-5"></i>
+        <span>Código copiado para a área de transferência!</span>
+    </div>
+
+    <script>
+        // --- DADOS DOS PRODUTOS ---
+        // EDITE AQUI PARA MUDAR NOMES, PREÇOS E CÓDIGOS
+        const products = [
+            // ITENS GRÁTIS (3 Itens)
+            {
+                id: 1,
+                name: "Average Force",
+                type: "free",
+                price: 0,
+                description: "oscilador de momentum que mede a posição do preço em relação à sua amplitude (máxima e mínima) em um determinado período.",
+                code: `//@version=4
+study("Average Force", "AF")
+
+af(Series, High, Low, Period, PostSmooth) =>
+    period       =     max(1, int(Period))
+    highestHigh  = highest(High,  period)
+    lowestLow    =  lowest( Low,  period)
+    HHminusLL    = highestHigh - lowestLow
+    averageForce = HHminusLL==0.0 ? 0.0 : (Series - lowestLow) / HHminusLL - 0.5
+    sma(averageForce, max(1, int(PostSmooth)))
+
+period = input(18, "Period", input.integer, minval=1)
+smooth = input( 6, "Smooth", input.integer, minval=1)
+
+AF = af(close, high, low, period, smooth)
+
+Color = AF>0.0 ? color.yellow : color.fuchsia
+plot(AF, color=Color, style=plot.style_columns)`
+            },
+            {
+                id: 2,
+                name: "Stochastic Z-Score",
+                type: "free",
+                price: 0,
+                description: "oscilador avançado que combina estatística e momentum para identificar reversões de tendência e condições de sobrecompra ou sobrevenda.",
+                code: `// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © AlgoAlpha
+
+//@version=6
+
+// Inputs
+indicator("Stochastic Z-Score [AlgoAlpha]", "AlgoAlpha - Stoch Z-Score")
+
+src = input.source(hlc3, title = "Source", group = "Calculation", tooltip = "Price series used for all calculations. Changing it alters the base values from which the Z-score and momentum are derived.")
+len = input.int(21, title = "Length", group = "Calculation", tooltip = "Look-back period for moving averages and deviations. Higher values give smoother, slower signals; lower values make the oscillator faster and more sensitive.")
+hist = input.bool(false, title = "Show Histogram", group = "Appearance", tooltip = "Toggle display of the raw, unsmoothed Z-score as columns. Useful for visualising noise layer beneath the smoothed oscillator.")
+green = input.color(#00ffbb, title = "Bullish Colour", group = "Appearance", tooltip = "Primary colour for bullish visual elements. Adjust for preferred palette – affects bars, fills, and labels when momentum is positive.")
+red   = input.color(#ff1100, title = "Bearish Colour", group = "Appearance", tooltip = "Primary colour for bearish visual elements. Adjust for preferred palette – affects bars, fills, and labels when momentum is negative.")
+
+basis = ta.sma(src, len)
+zscore = (src - basis) / ta.stdev(src, len)
+stochZ = ta.stoch(zscore, zscore, zscore, len)
+scaledSZ= stochZ/25-2
+smoothed_scaled = ta.hma(scaledSZ, len)
+ltm = ta.alma(zscore, len, 0, 0.1)
+
+// Plots & Visuals
+zscore_color = color.new(color.from_gradient(zscore, -2, 2, red, green), math.max(math.min(int((1-math.abs(zscore)/4)*100), 70), 70))
+plot(zscore, color = zscore_color, linewidth = 2, display = hist ? display.all : display.none, style = plot.style_columns, title = "Z-Score")
+
+smoothed_scaled_prev = smoothed_scaled[1]
+smoothed_scaled_color = color.new(color.gray, smoothed_scaled > smoothed_scaled_prev ? 0 : 50)
+main  = plot(smoothed_scaled,  title = "Smoothed Oscillator", color = smoothed_scaled_color, linewidth = 3)
+main1 = plot(smoothed_scaled_prev, title = "Oscillator (Lag 1)", color = color.new(color.gray, smoothed_scaled > smoothed_scaled_prev ? 20 : 70), display = display.none)
+
+ltm_color = color.new(ltm > 0 ? green : red, 70)
+longtm = plot(ltm, title = "Long-Term Momentum (ALMA)", color = ltm_color, display = display.none)
+
+mid = plot(0, title = "Zero Line", display = display.none)
+upper_color = color.new(color.from_gradient(math.max(0, smoothed_scaled), 0, 2, color.gray, red), 70)
+lower_color = color.new(color.from_gradient(math.min(0, smoothed_scaled), -2, 0, green, color.gray), 70)
+u = plot(2, "Upper", upper_color, linewidth = 3)
+d = plot(-2, "Down", lower_color, linewidth = 3)
+u1 = plot(2.5, "Upper Outer", color.from_gradient(math.max(0, smoothed_scaled), 0, 2.5, color.gray, red), linewidth = 3)
+d1 = plot(-2.5, "Down Outer", color.from_gradient(math.min(0, smoothed_scaled), -2.5, 0, green, color.gray), linewidth = 3)
+
+plotchar(ta.cross(smoothed_scaled, smoothed_scaled_prev) ? smoothed_scaled_prev : na, "Momentum Shift", "●", location.absolute, chart.fg_color, size = size.tiny)
+plotchar(ta.crossover(smoothed_scaled, smoothed_scaled_prev) and ltm > 0 and smoothed_scaled_prev < -2 ? -3 : na, "Bullish Reversal", "▲", location.absolute, green, size = size.tiny)
+plotchar(ta.crossunder(smoothed_scaled, smoothed_scaled_prev) and ltm < 0 and smoothed_scaled_prev > 2 ? 3 : na, "Bearish Reversal", "▼", location.absolute, red, size = size.tiny)
+
+plotshape(ta.crossover(smoothed_scaled, smoothed_scaled_prev) and ltm > 0 and smoothed_scaled_prev < -2, "Bullish Trend", shape.labelup, location.belowbar, color.new(green, 50), text = "▲", textcolor = chart.fg_color, size = size.small, force_overlay = true)
+plotshape(ta.crossunder(smoothed_scaled, smoothed_scaled_prev) and ltm < 0 and smoothed_scaled_prev > 2, "Bearish Trend", shape.labeldown, location.abovebar, color.new(red, 50), text = "▼", textcolor = chart.fg_color, size = size.small, force_overlay = true)
+
+upper_fill_color = color.new(color.from_gradient(math.max(0, smoothed_scaled), 0, 2, chart.bg_color, red), 50)
+upper_fill_color_100 = color.new(color.from_gradient(math.max(0, smoothed_scaled), 0, 2, chart.bg_color, red), 100)
+lower_fill_color = color.new(color.from_gradient(math.min(0, smoothed_scaled), -2, 0, green, chart.bg_color), 100)
+lower_fill_color_50 = color.new(color.from_gradient(math.min(0, smoothed_scaled), -2, 0, green, chart.bg_color), 50)
+fill(u1, u, 2.5, 2, upper_fill_color, upper_fill_color_100, "Upper Fill")
+fill(d, d1, -2, -2.5, lower_fill_color, lower_fill_color_50, "Lower Fill")
+fill(main, main1, color.new(color.gray, smoothed_scaled > smoothed_scaled_prev ? 20 : 70), "Oscillator Fill")
+fill(longtm, mid, ltm, 0, ltm_color, color.new(ltm > 0 ? green : red, 90))
+
+// Alerts
+alertcondition(ta.cross(smoothed_scaled, smoothed_scaled_prev), title = "Momentum Shift", message = "Stochastic Z-Score momentum direction changed.")
+alertcondition(ta.crossover(smoothed_scaled, smoothed_scaled_prev) and ltm > 0 and smoothed_scaled_prev < -2, title = "Bullish Reversal", message = "Bullish reversal detected (oscillator crosses up while long-term momentum is positive).")
+alertcondition(ta.crossunder(smoothed_scaled, smoothed_scaled_prev) and ltm < 0 and smoothed_scaled_prev > 2, title = "Bearish Reversal", message = "Bearish reversal detected (oscillator crosses down while long-term momentum is negative).")
+alertcondition(ta.crossover(smoothed_scaled, 0), title = "Oscillator Crosses Above Zero", message = "Oscillator crossed above the zero line (bullish momentum).")
+alertcondition(ta.crossunder(smoothed_scaled, 0), title = "Oscillator Crosses Below Zero", message = "Oscillator crossed below the zero line (bearish momentum).")
+alertcondition(ta.crossover(ltm, 0), title = "Long-Term Momentum Bullish", message = "Long-term momentum (ALMA) crossed above zero.")
+alertcondition(ta.crossunder(ltm, 0), title = "Long-Term Momentum Bearish", message = "Long-term momentum (ALMA) crossed below zero.")
+alertcondition(smoothed_scaled > 2.5, title = "Overbought", message = "Oscillator entered overbought zone (> 2.5).")
+alertcondition(smoothed_scaled < -2.5, title = "Oversold", message = "Oscillator entered oversold zone (< -2.5).")`
+            },
+            {
+                id: 3,
+                name: "Order Blocks & Breaker Blocks",
+                type: "free",
+                price: 0,
+                description: "identifica automaticamente zonas de oferta e demanda institucional no gráfico, conhecidas como Order Blocks e Breaker Blocks.",
+                code: `// This work is licensed under a Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) https://creativecommons.org/licenses/by-nc-sa/4.0/
+// © LuxAlgo
+
+//@version=5
+indicator("Order Blocks & Breaker Blocks [LuxAlgo]", overlay = true
+  , max_lines_count  = 500
+  , max_labels_count = 500
+  , max_boxes_count  = 500)
+//------------------------------------------------------------------------------
+//Settings
+//-----------------------------------------------------------------------------{
+length   = input.int(10, 'Swing Lookback'     , minval = 3)
+showBull = input.int(3, 'Show Last Bullish OB', minval = 0)
+showBear = input.int(3, 'Show Last Bearish OB', minval = 0)
+useBody  = input(false, 'Use Candle Body')
+
+//Style
+bullCss      = input(color.new(#2157f3, 80), 'Bullish OB'   , inline = 'bullcss', group = 'Style')
+bullBreakCss = input(color.new(#ff1100, 80), 'Bullish Break', inline = 'bullcss', group = 'Style')
+
+bearCss      = input(color.new(#ff5d00, 80), 'Bearish OB'   , inline = 'bearcss', group = 'Style')
+bearBreakCss = input(color.new(#0cb51a, 80), 'Bearish Break', inline = 'bearcss', group = 'Style')
+
+showLabels = input(false, 'Show Historical Polarity Changes')
+
+//-----------------------------------------------------------------------------}
+//UDT's
+//-----------------------------------------------------------------------------{
+type ob
+    float top = na
+    float btm = na
+    int   loc = bar_index
+    bool  breaker = false
+    int   break_loc = na
+
+type swing
+    float y = na
+    int   x = na
+    bool  crossed = false
+
+//-----------------------------------------------------------------------------}
+//Functions
+//-----------------------------------------------------------------------------{
+swings(len)=>
+    var os = 0
+    var swing top = swing.new(na, na)
+    var swing btm = swing.new(na, na)
+    
+    upper = ta.highest(len)
+    lower = ta.lowest(len)
+
+    os := high[len] > upper ? 0 
+      : low[len] < lower ? 1 : os
+
+    if os == 0 and os[1] != 0
+        top := swing.new(high[length], bar_index[length])
+    
+    if os == 1 and os[1] != 1
+        btm := swing.new(low[length], bar_index[length])
+
+    [top, btm]
+
+method notransp(color css) => color.rgb(color.r(css), color.g(css), color.b(css))
+
+method display(ob id, css, break_css)=>
+    if id.breaker
+        box.new(id.loc, id.top, id.break_loc, id.btm, css.notransp()
+          , bgcolor = css
+          , xloc = xloc.bar_time)
+
+        box.new(id.break_loc, id.top, time+1, id.btm, na
+          , bgcolor = break_css
+          , extend = extend.right
+          , xloc = xloc.bar_time)
+        
+        line.new(id.loc, id.top, id.break_loc, id.top, xloc.bar_time, color = css.notransp())
+        line.new(id.loc, id.btm, id.break_loc, id.btm, xloc.bar_time, color = css.notransp())
+        line.new(id.break_loc, id.top, time+1, id.top, xloc.bar_time, extend.right, break_css.notransp(), line.style_dashed)
+        line.new(id.break_loc, id.btm, time+1, id.btm, xloc.bar_time, extend.right, break_css.notransp(), line.style_dashed)
+    else
+        box.new(id.loc, id.top, time, id.btm, na
+          , bgcolor = css
+          , extend = extend.right
+          , xloc = xloc.bar_time)
+        
+        line.new(id.loc, id.top, time, id.top, xloc.bar_time, extend.right, css.notransp())
+        line.new(id.loc, id.btm, time, id.btm, xloc.bar_time, extend.right, css.notransp())
+
+//-----------------------------------------------------------------------------}
+//Detect Swings
+//-----------------------------------------------------------------------------{
+n = bar_index
+
+[top, btm] = swings(length)
+max = useBody ? math.max(close, open) : high
+min = useBody ? math.min(close, open) : low
+
+//-----------------------------------------------------------------------------}
+//Bullish OB
+//-----------------------------------------------------------------------------{
+var bullish_ob = array.new<ob>(0)
+bull_break_conf = 0
+
+if close > top.y and not top.crossed
+    top.crossed := true
+
+    minima = max[1]
+    maxima = min[1]
+    loc = time[1]
+
+    for i = 1 to (n - top.x)-1
+        minima := math.min(min[i], minima)
+        maxima := minima == min[i] ? max[i] : maxima
+        loc := minima == min[i] ? time[i] : loc
+
+    bullish_ob.unshift(ob.new(maxima, minima, loc))
+
+if bullish_ob.size() > 0
+    for i = bullish_ob.size()-1 to 0
+        element = bullish_ob.get(i)
+    
+        if not element.breaker 
+            if math.min(close, open) < element.btm
+                element.breaker := true
+                element.break_loc := time
+        else
+            if close > element.top
+                bullish_ob.remove(i)
+            else if i < showBull and top.y < element.top and top.y > element.btm 
+                bull_break_conf := 1
+
+//Set label
+if bull_break_conf > bull_break_conf[1] and showLabels
+    label.new(top.x, top.y, '▼', color = na
+      , textcolor = bearCss.notransp()
+      , style = label.style_label_down
+      , size = size.tiny)
+
+//-----------------------------------------------------------------------------}
+//Bearish OB
+//-----------------------------------------------------------------------------{
+var bearish_ob = array.new<ob>(0)
+bear_break_conf = 0
+
+if close < btm.y and not btm.crossed
+    btm.crossed := true
+
+    minima = min[1]
+    maxima = max[1]
+    loc = time[1]
+
+    for i = 1 to (n - btm.x)-1
+        maxima := math.max(max[i], maxima)
+        minima := maxima == max[i] ? min[i] : minima
+        loc := maxima == max[i] ? time[i] : loc
+
+    bearish_ob.unshift(ob.new(maxima, minima, loc))
+
+if bearish_ob.size() > 0
+    for i = bearish_ob.size()-1 to 0
+        element = bearish_ob.get(i)
+
+        if not element.breaker 
+            if math.max(close, open) > element.top
+                element.breaker := true
+                element.break_loc := time
+        else
+            if close < element.btm
+                bearish_ob.remove(i)
+            else if i < showBear and btm.y > element.btm and btm.y < element.top 
+                bear_break_conf := 1
+
+//Set label
+if bear_break_conf > bear_break_conf[1] and showLabels
+    label.new(btm.x, btm.y, '▲', color = na
+      , textcolor = bullCss.notransp()
+      , style = label.style_label_up
+      , size = size.tiny)
+
+//-----------------------------------------------------------------------------}
+//Set Order Blocks
+//-----------------------------------------------------------------------------{
+for bx in box.all
+    bx.delete()
+
+for l in line.all
+    l.delete()
+
+if barstate.islast
+    //Bullish
+    if showBull > 0
+        for i = 0 to math.min(showBull-1, bullish_ob.size())
+            get_ob = bullish_ob.get(i)
+            get_ob.display(bullCss, bullBreakCss)
+
+    //Bearish
+    if showBear > 0
+        for i = 0 to math.min(showBear-1, bearish_ob.size())
+            get_ob = bearish_ob.get(i)
+            get_ob.display(bearCss, bearBreakCss)
+
+//-----------------------------------------------------------------------------}`
+            },
+            // ITENS PAGOS (5 Itens)
+            {
+                id: 4,
+                name: "Strategy Builder",
+                type: "paid",
+                price: 59.90,
+                description: "construtor de estratégias Tudo em Um projetado para que o usuário crie seu próprio sistema de trading sem precisar programar. Ele funciona através de um sistema de Indicador Principal (Sinal) combinado com múltiplos Filtros de Confirmação."
+            },
+            {
+                id: 5,
+                name: "Machine Learning",
+                type: "paid",
+                price: 62.90,
+                description: "prever a direção do preço com base em dados históricos. Em vez de usar cálculos matemáticos fixos (como um indicador comum), ele aprende com o passado para classificar se o cenário atual é de Compra ou Venda."
+            },
+            {
+                id: 6,
+                name: "SuperTrend GLX",
+                type: "paid",
+                price: 39.90,
+                description: "rastreador de tendências avançado que combina o clássico SuperTrend com dois filtros inteligentes para aumentar a precisão e evitar sinais falsos em mercados laterais."
+            },
+            {
+                id: 7,
+                name: "Duration Trend",
+                type: "paid",
+                price: 50.90,
+                description: "não apenas identifica a tendência atual, mas também prever quanto tempo ela irá durar. Ele utiliza estatística baseada no histórico recente do ativo para calcular a duração provável de um movimento de alta ou baixa."
+            },
+            {
+                id: 8,
+                name: "Lag ZLEMA",
+                type: "paid",
+                price: 45.90,
+                description: "identificar a tendência do mercado com o mínimo de atraso possível, utilizando uma Média Móvel de Lag Zero (ZLEMA). Ele é ideal para traders que buscam sinais rápidos, mas filtrados por volatilidade."
+            }
+        ];
+
+        const contactInfo = {
+            whatsapp: "5582996519753", // Seu número sem formatação
+            instagram: "_vctr01_"       // Seu usuário sem @
+        };
+
+        // --- FUNÇÕES ---
+
+        function formatCurrency(value) {
+            return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function renderCatalog() {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            products.forEach(product => {
+                const isFree = product.type === 'free';
+                const badgeColor = isFree ? 'bg-lunnar-primary/20 text-lunnar-primary border-lunnar-primary/30' : 'bg-yellow-500/20 text-yellow-500 border-yellow-500/30';
+                const priceDisplay = isFree ? 'GRÁTIS' : formatCurrency(product.price);
+                const buttonText = isFree ? 'Acessar Código' : 'Comprar Agora';
+                const buttonClass = isFree ? 'bg-gray-700 hover:bg-gray-600' : 'bg-lunnar-primary hover:bg-emerald-600';
+
+                const cardHTML = `
+                    <div class="glass-card rounded-xl p-5 flex flex-col h-full hover:scale-[1.02] transition-transform duration-300 group cursor-pointer" onclick="openModal(${product.id})">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 rounded-lg bg-gray-800 group-hover:bg-gray-700 transition-colors">
+                                <i data-lucide="${isFree ? 'code-2' : 'lock'}" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold border ${badgeColor}">
+                                ${priceDisplay}
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">${product.name}</h3>
+                        <p class="text-gray-400 text-sm flex-grow mb-4">${product.description}</p>
+                        <button class="w-full py-2.5 rounded-lg text-white font-medium text-sm transition-colors ${buttonClass} flex justify-center items-center gap-2">
+                            ${isFree ? '<i data-lucide="download" class="w-4 h-4"></i> Pegar Código' : '<i data-lucide="shopping-cart" class="w-4 h-4"></i> Adquirir'}
+                        </button>
+                    </div>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+            lucide.createIcons();
+        }
+
+        function openModal(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            const modal = document.getElementById('modal');
+            const contentDiv = document.getElementById('modal-content');
+            const title = document.getElementById('modal-title');
+
+            title.innerText = product.name;
+
+            if (product.type === 'free') {
+                contentDiv.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="bg-blue-900/30 border border-blue-500/30 p-3 rounded-lg flex items-start gap-3">
+                            <i data-lucide="info" class="text-blue-400 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-blue-200">
+                                <strong>Dica:</strong> Copie o código abaixo e cole no "Editor Pine" na parte inferior do seu TradingView.
+                            </p>
+                        </div>
+                        
+                        <div class="relative group">
+                            <textarea id="code-area-${product.id}" class="w-full h-48 bg-gray-950 text-green-400 p-4 rounded-lg font-mono text-xs border border-gray-700 focus:border-lunnar-primary outline-none resize-none" readonly>${product.code}</textarea>
+                            <button onclick="copyCode('code-area-${product.id}')" class="absolute top-2 right-2 bg-gray-800 hover:bg-gray-700 text-white p-2 rounded-md transition-colors border border-gray-600" title="Copiar Código">
+                                <i data-lucide="copy" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                        <button onclick="copyCode('code-area-${product.id}')" class="w-full bg-lunnar-primary hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="copy"></i> Copiar Código Completo
+                        </button>
+                    </div>
+                `;
+            } else {
+                const message = `Olá! Tenho interesse no indicador *${product.name}* da Loja Lunnar.`;
+                const waLink = `https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(message)}`;
+                const igLink = `https://instagram.com/${contactInfo.instagram}`;
+
+                contentDiv.innerHTML = `
+                    <div class="text-center space-y-6">
+                        <div class="mx-auto w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mb-2">
+                             <i data-lucide="star" class="w-8 h-8 text-yellow-500 fill-current"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-300 mb-1">Este é um indicador exclusivo Premium.</p>
+                            <p class="text-2xl font-bold text-white mb-4">Valor: ${formatCurrency(product.price)}</p>
+                            <p class="text-sm text-gray-400">Entre em contato diretamente comigo para adquirir e liberar seu acesso.</p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <a href="${waLink}" target="_blank" class="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3 rounded-lg transition-colors flex justify-center items-center gap-2">
+                                <i data-lucide="message-circle" class="fill-current"></i> Comprar via WhatsApp
+                            </a>
+                            <a href="${igLink}" target="_blank" class="block w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 rounded-lg transition-colors flex justify-center items-center gap-2">
+                                <i data-lucide="instagram"></i> Chamar no Instagram
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            modal.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        function copyCode(elementId) {
+            const copyText = document.getElementById(elementId);
+            
+            // Seleciona o texto
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* Para mobile */
+
+            // Copia usando execCommand (fallback robusto)
+            document.execCommand("copy");
+
+            // Fecha modal (opcional, mas mantive aberto para o usuário ver)
+            // closeModal();
+
+            // Mostra notificação Toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCatalog();
+            lucide.createIcons();
+        });
+
+    </script>
+</body>
+</html>
