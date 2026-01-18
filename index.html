@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunnar - Store de Indicadores</title>
-    <!-- Tailwind CSS para estilização rápida e responsiva -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Ícones Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Fonte Google (Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <script>
@@ -20,10 +17,10 @@
                     },
                     colors: {
                         lunnar: {
-                            dark: '#0f172a', // Slate 900
-                            card: '#1e293b', // Slate 800
-                            primary: '#10b981', // Emerald 500
-                            accent: '#3b82f6', // Blue 500
+                            dark: '#001233', // Azul Royale Profundo
+                            card: '#001F54', // Azul Royale Médio
+                            primary: '#D4AF37', // Dourado Clássico
+                            accent: '#FFD700',  // Ouro Brilhante
                         }
                     }
                 }
@@ -32,153 +29,120 @@
     </script>
     <style>
         body {
-            background-color: #0b0f19;
-            color: #e2e8f0;
+            background-color: #000B1E; /* Fundo quase preto com tom azulado */
+            color: #f8fafc;
         }
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 31, 84, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2); /* Borda dourada sutil */
         }
-        /* Scrollbar personalizada para o código */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
         }
-        ::-webkit-scrollbar-track {
-            background: #0f172a; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569; 
-        }
-        .code-block {
-            font-family: 'Courier New', Courier, monospace;
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #001233; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        
+        .selection-gold::selection {
+            background: #D4AF37;
+            color: #001233;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col font-sans selection:bg-lunnar-primary selection:text-white">
+<body class="min-h-screen flex flex-col font-sans selection-gold">
 
-    <!-- Navbar -->
-    <nav class="w-full py-6 px-6 md:px-12 flex justify-between items-center glass-card sticky top-0 z-40 border-b border-gray-800">
+    <nav class="w-full py-6 px-6 md:px-12 flex justify-between items-center glass-card sticky top-0 z-40 border-b border-lunnar-primary/20">
         <div class="flex items-center gap-2">
             <i data-lucide="moon" class="text-lunnar-primary w-8 h-8 fill-current"></i>
-            <span class="text-2xl font-bold tracking-tight text-white">LUNNAR</span>
+            <span class="text-2xl font-bold tracking-tight text-white">Lunnar</span>
         </div>
-        <div class="hidden md:flex gap-6 text-sm font-medium text-gray-400">
+        <div class="hidden md:flex gap-6 text-sm font-medium text-gray-300">
             <a href="#catalogo" class="hover:text-lunnar-primary transition-colors">Catálogo</a>
         </div>
-        <a href="#catalogo" class="bg-lunnar-primary/10 text-lunnar-primary px-4 py-2 rounded-full text-sm font-semibold border border-lunnar-primary/20 hover:bg-lunnar-primary hover:text-white transition-all">
+        <a href="#catalogo" class="border border-lunnar-primary text-lunnar-primary px-5 py-2 rounded-full text-sm font-bold hover:bg-lunnar-primary hover:text-lunnar-dark transition-all duration-300">
             Ver Indicadores
         </a>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative px-6 py-20 md:py-32 text-center overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+    <header class="relative px-6 py-24 md:py-36 text-center overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-lunnar-primary/10 rounded-full blur-[120px] -z-10"></div>
+        
         <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
-                Domine o Mercado com a <span class="text-transparent bg-clip-text bg-gradient-to-r from-lunnar-primary to-blue-500">Lunnar</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                Domine o Mercado com a <span class="text-transparent bg-clip-text gold-gradient">Lunnar</span>
             </h1>
-            <p class="text-gray-400 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light">
                 Indicadores exclusivos de alta precisão para TradingView. 
-                Ferramentas profissionais para traders que buscam consistência.
+                Ferramentas de elite para traders que buscam a máxima performance.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#catalogo" class="bg-lunnar-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-emerald-600 transition-colors shadow-lg shadow-lunnar-primary/20">
+                <a href="#catalogo" class="gold-gradient text-lunnar-dark px-10 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-lunnar-primary/20">
                     Explorar Loja
                 </a>
-                <a href="https://wa.me/5582996519753" target="_blank" class="glass-card text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i> Falar no WhatsApp
+                <a href="https://wa.me/5582996519753" target="_blank" class="glass-card text-white px-10 py-4 rounded-xl font-bold hover:bg-lunnar-card transition-colors flex items-center justify-center gap-2 border border-white/10">
+                    <i data-lucide="message-circle" class="w-5 h-5 text-lunnar-primary"></i> Suporte VIP
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Catálogo Section -->
-    <section id="catalogo" class="px-6 py-16 md:px-12 max-w-7xl mx-auto w-full">
-        <div class="flex items-center justify-between mb-10">
-            <h2 class="text-3xl font-bold text-white flex items-center gap-2">
-                <i data-lucide="bar-chart-2" class="text-lunnar-primary"></i> Catálogo
+    <section id="catalogo" class="px-6 py-20 md:px-12 max-w-7xl mx-auto w-full">
+        <div class="flex items-center justify-between mb-12 border-l-4 border-lunnar-primary pl-4">
+            <h2 class="text-3xl font-bold text-white uppercase tracking-widest">
+                Catálogo de Elite
             </h2>
-            <span class="text-sm text-gray-500">8 Indicadores Disponíveis</span>
+            <span class="text-sm text-lunnar-primary/60 font-mono">Status: Online</span>
         </div>
 
-        <!-- Grid de Produtos (Gerado via JS) -->
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Os cards serão inseridos aqui pelo JavaScript -->
-        </div>
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="mt-auto border-t border-gray-800 bg-black/40 py-10 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="mt-auto border-t border-lunnar-primary/20 bg-lunnar-dark/80 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="text-center md:text-left">
-                <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
-                    <i data-lucide="moon" class="text-lunnar-primary w-5 h-5"></i>
-                    <span class="text-xl font-bold text-white">LUNNAR</span>
+                <div class="flex items-center gap-2 justify-center md:justify-start mb-3">
+                    <i data-lucide="moon" class="text-lunnar-primary w-6 h-6"></i>
+                    <span class="text-2xl font-bold text-white tracking-tighter">LUNNAR</span>
                 </div>
-                <p class="text-gray-500 text-sm">© 2026 Lunnar Indicators. Todos os direitos reservados.</p>
+                <p class="text-gray-500 text-sm">© 2026 Lunnar Indicators. Tecnologia e Precisão.</p>
             </div>
             
-            <div class="flex gap-4">
-                <a href="https://instagram.com/_vctr01_" target="_blank" class="text-gray-400 hover:text-pink-500 transition-colors">
+            <div class="flex gap-6">
+                <a href="https://instagram.com/_vctr01_" target="_blank" class="text-gray-400 hover:text-lunnar-primary transition-colors p-2 bg-white/5 rounded-full">
                     <i data-lucide="instagram" class="w-6 h-6"></i>
                 </a>
-                <a href="https://wa.me/5582996519753" target="_blank" class="text-gray-400 hover:text-green-500 transition-colors">
+                <a href="https://wa.me/5582996519753" target="_blank" class="text-gray-400 hover:text-lunnar-primary transition-colors p-2 bg-white/5 rounded-full">
                     <i data-lucide="message-circle" class="w-6 h-6"></i>
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL (Pop-up) -->
-    <div id="modal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
-
-        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-2xl bg-[#1e293b] text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-gray-700">
-                
-                <!-- Header do Modal -->
-                <div class="bg-[#0f172a] px-4 py-4 sm:px-6 flex justify-between items-center border-b border-gray-700">
-                    <h3 class="text-lg font-semibold leading-6 text-white" id="modal-title">Detalhes do Indicador</h3>
-                    <button type="button" class="text-gray-400 hover:text-white" onclick="closeModal()">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
+    <div id="modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-lunnar-dark/90 backdrop-blur-md" onclick="closeModal()"></div>
+        <div class="flex min-h-full items-center justify-center p-4">
+            <div class="relative transform overflow-hidden rounded-2xl bg-lunnar-card text-left shadow-2xl transition-all sm:w-full sm:max-w-lg border border-lunnar-primary/30">
+                <div class="bg-lunnar-dark px-6 py-4 flex justify-between items-center border-b border-lunnar-primary/20">
+                    <h3 class="text-lg font-bold text-lunnar-primary uppercase tracking-widest" id="modal-title">Detalhes</h3>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-white"><i data-lucide="x"></i></button>
                 </div>
-
-                <!-- Conteúdo do Modal -->
-                <div class="px-4 py-6 sm:px-6">
-                    <div id="modal-content">
-                        <!-- Conteúdo Dinâmico Aqui -->
-                    </div>
-                </div>
+                <div class="px-6 py-8" id="modal-content"></div>
             </div>
         </div>
     </div>
 
-    <!-- Toast Notification (Copiado com sucesso) -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-lunnar-primary text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-2">
+    <div id="toast" class="fixed bottom-5 right-5 gold-gradient text-lunnar-dark px-6 py-3 rounded-lg shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-2 font-bold">
         <i data-lucide="check-circle" class="w-5 h-5"></i>
-        <span>Código copiado para a área de transferência!</span>
+        <span>Código copiado com sucesso!</span>
     </div>
 
     <script>
-        // --- DADOS DOS PRODUTOS ---
-        // EDITE AQUI PARA MUDAR NOMES, PREÇOS E CÓDIGOS
+        // Dados dos produtos (os mesmos fornecidos)
         const products = [
-            // ITENS GRÁTIS (3 Itens)
-            {
-                id: 1,
-                name: "Average Force",
-                type: "free",
-                price: 0,
-                description: "oscilador de momentum que mede a posição do preço em relação à sua amplitude (máxima e mínima) em um determinado período.",
-                code: `//@version=4
+            { id: 1, name: "Average Force", type: "free", price: 0, description: "oscilador de momentum que mede a posição do preço em relação à sua amplitude (máxima e mínima) em um determinado período.", code: `//@version=4
 study("Average Force", "AF")
 
 af(Series, High, Low, Period, PostSmooth) =>
@@ -195,15 +159,8 @@ smooth = input( 6, "Smooth", input.integer, minval=1)
 AF = af(close, high, low, period, smooth)
 
 Color = AF>0.0 ? color.yellow : color.fuchsia
-plot(AF, color=Color, style=plot.style_columns)`
-            },
-            {
-                id: 2,
-                name: "Stochastic Z-Score",
-                type: "free",
-                price: 0,
-                description: "oscilador avançado que combina estatística e momentum para identificar reversões de tendência e condições de sobrecompra ou sobrevenda.",
-                code: `// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+plot(AF, color=Color, style=plot.style_columns)` },
+            { id: 2, name: "Stochastic Z-Score", type: "free", price: 0, description: "oscilador avançado que combina estatística e momentum para identificar reversões de tendência e condições de sobrecompra ou sobrevenda.", code: `// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © AlgoAlpha
 
 //@version=6
@@ -269,15 +226,8 @@ alertcondition(ta.crossunder(smoothed_scaled, 0), title = "Oscillator Crosses Be
 alertcondition(ta.crossover(ltm, 0), title = "Long-Term Momentum Bullish", message = "Long-term momentum (ALMA) crossed above zero.")
 alertcondition(ta.crossunder(ltm, 0), title = "Long-Term Momentum Bearish", message = "Long-term momentum (ALMA) crossed below zero.")
 alertcondition(smoothed_scaled > 2.5, title = "Overbought", message = "Oscillator entered overbought zone (> 2.5).")
-alertcondition(smoothed_scaled < -2.5, title = "Oversold", message = "Oscillator entered oversold zone (< -2.5).")`
-            },
-            {
-                id: 3,
-                name: "Order Blocks & Breaker Blocks",
-                type: "free",
-                price: 0,
-                description: "identifica automaticamente zonas de oferta e demanda institucional no gráfico, conhecidas como Order Blocks e Breaker Blocks.",
-                code: `// This work is licensed under a Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) https://creativecommons.org/licenses/by-nc-sa/4.0/
+alertcondition(smoothed_scaled < -2.5, title = "Oversold", message = "Oscillator entered oversold zone (< -2.5).")` },
+            { id: 3, name: "Order Blocks & Breaker Blocks", type: "free", price: 0, description: "identifica automaticamente zonas de oferta e demanda institucional no gráfico, conhecidas como Order Blocks e Breaker Blocks.", code: `// This work is licensed under a Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) https://creativecommons.org/licenses/by-nc-sa/4.0/
 // © LuxAlgo
 
 //@version=5
@@ -478,52 +428,13 @@ if barstate.islast
             get_ob = bearish_ob.get(i)
             get_ob.display(bearCss, bearBreakCss)
 
-//-----------------------------------------------------------------------------}`
-            },
-            // ITENS PAGOS (5 Itens)
-            {
-                id: 4,
-                name: "Strategy Builder",
-                type: "paid",
-                price: 59.90,
-                description: "construtor de estratégias Tudo em Um projetado para que o usuário crie seu próprio sistema de trading sem precisar programar. Ele funciona através de um sistema de Indicador Principal (Sinal) combinado com múltiplos Filtros de Confirmação."
-            },
-            {
-                id: 5,
-                name: "Machine Learning",
-                type: "paid",
-                price: 62.90,
-                description: "prever a direção do preço com base em dados históricos. Em vez de usar cálculos matemáticos fixos (como um indicador comum), ele aprende com o passado para classificar se o cenário atual é de Compra ou Venda."
-            },
-            {
-                id: 6,
-                name: "SuperTrend GLX",
-                type: "paid",
-                price: 39.90,
-                description: "rastreador de tendências avançado que combina o clássico SuperTrend com dois filtros inteligentes para aumentar a precisão e evitar sinais falsos em mercados laterais."
-            },
-            {
-                id: 7,
-                name: "Duration Trend",
-                type: "paid",
-                price: 50.90,
-                description: "não apenas identifica a tendência atual, mas também prever quanto tempo ela irá durar. Ele utiliza estatística baseada no histórico recente do ativo para calcular a duração provável de um movimento de alta ou baixa."
-            },
-            {
-                id: 8,
-                name: "Lag ZLEMA",
-                type: "paid",
-                price: 45.90,
-                description: "identificar a tendência do mercado com o mínimo de atraso possível, utilizando uma Média Móvel de Lag Zero (ZLEMA). Ele é ideal para traders que buscam sinais rápidos, mas filtrados por volatilidade."
-            }
+//-----------------------------------------------------------------------------}` },
+            { id: 4, name: "Strategy Builder", type: "paid", price: 59.90, description: "construtor de estratégias Tudo em Um projetado para que o usuário crie seu próprio sistema de trading sem precisar programar. Ele funciona através de um sistema de Indicador Principal (Sinal) combinado com múltiplos Filtros de Confirmação." },
+            { id: 5, name: "Machine Learning", type: "paid", price: 62.90, description: "prever a direção do preço com base em dados históricos. Em vez de usar cálculos matemáticos fixos (como um indicador comum), ele aprende com o passado para classificar se o cenário atual é de Compra ou Venda." },
+            { id: 6, name: "SuperTrend GLX", type: "paid", price: 39.90, description: "rastreador de tendências avançado que combina o clássico SuperTrend com dois filtros inteligentes para aumentar a precisão e evitar sinais falsos em mercados laterais." },
+            { id: 7, name: "Duration Trend", type: "paid", price: 50.90, description: "não apenas identifica a tendência atual, mas também prever quanto tempo ela irá durar. Ele utiliza estatística baseada no histórico recente do ativo para calcular a duração provável de um movimento de alta ou baixa." },
+            { id: 8, name: "Lag ZLEMA", type: "paid", price: 45.90, description: "identificar a tendência do mercado com o mínimo de atraso possível, utilizando uma Média Móvel de Lag Zero (ZLEMA). Ele é ideal para traders que buscam sinais rápidos, mas filtrados por volatilidade." }
         ];
-
-        const contactInfo = {
-            whatsapp: "5582996519753", // Seu número sem formatação
-            instagram: "_vctr01_"       // Seu usuário sem @
-        };
-
-        // --- FUNÇÕES ---
 
         function formatCurrency(value) {
             return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -531,132 +442,91 @@ if barstate.islast
 
         function renderCatalog() {
             const grid = document.getElementById('product-grid');
-            grid.innerHTML = '';
-
-            products.forEach(product => {
+            grid.innerHTML = products.map(product => {
                 const isFree = product.type === 'free';
-                const badgeColor = isFree ? 'bg-lunnar-primary/20 text-lunnar-primary border-lunnar-primary/30' : 'bg-yellow-500/20 text-yellow-500 border-yellow-500/30';
-                const priceDisplay = isFree ? 'GRÁTIS' : formatCurrency(product.price);
-                const buttonText = isFree ? 'Acessar Código' : 'Comprar Agora';
-                const buttonClass = isFree ? 'bg-gray-700 hover:bg-gray-600' : 'bg-lunnar-primary hover:bg-emerald-600';
-
-                const cardHTML = `
-                    <div class="glass-card rounded-xl p-5 flex flex-col h-full hover:scale-[1.02] transition-transform duration-300 group cursor-pointer" onclick="openModal(${product.id})">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="p-3 rounded-lg bg-gray-800 group-hover:bg-gray-700 transition-colors">
-                                <i data-lucide="${isFree ? 'code-2' : 'lock'}" class="w-6 h-6 text-white"></i>
+                return `
+                    <div class="glass-card rounded-2xl p-6 flex flex-col h-full hover:border-lunnar-primary transition-all duration-300 group cursor-pointer" onclick="openModal(${product.id})">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="p-3 rounded-xl bg-lunnar-dark group-hover:bg-lunnar-primary/10 transition-colors">
+                                <i data-lucide="${isFree ? 'code' : 'crown'}" class="w-6 h-6 ${isFree ? 'text-gray-400' : 'text-lunnar-primary'}"></i>
                             </div>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold border ${badgeColor}">
-                                ${priceDisplay}
+                            <span class="text-xs font-black px-3 py-1 rounded-md ${isFree ? 'bg-gray-700 text-gray-300' : 'bg-lunnar-primary text-lunnar-dark'}">
+                                ${isFree ? 'FREE' : formatCurrency(product.price)}
                             </span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">${product.name}</h3>
-                        <p class="text-gray-400 text-sm flex-grow mb-4">${product.description}</p>
-                        <button class="w-full py-2.5 rounded-lg text-white font-medium text-sm transition-colors ${buttonClass} flex justify-center items-center gap-2">
-                            ${isFree ? '<i data-lucide="download" class="w-4 h-4"></i> Pegar Código' : '<i data-lucide="shopping-cart" class="w-4 h-4"></i> Adquirir'}
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-lunnar-primary transition-colors">${product.name}</h3>
+                        <p class="text-gray-400 text-sm flex-grow mb-6 leading-relaxed">${product.description}</p>
+                        <button class="w-full py-3 rounded-xl font-bold text-sm transition-all ${isFree ? 'bg-white/10 text-white hover:bg-white/20' : 'gold-gradient text-lunnar-dark hover:brightness-110 shadow-lg shadow-lunnar-primary/10'}">
+                            ${isFree ? 'Pegar Código' : 'Adquirir Acesso'}
                         </button>
                     </div>
                 `;
-                grid.innerHTML += cardHTML;
-            });
+            }).join('');
             lucide.createIcons();
         }
 
         function openModal(id) {
-            const product = products.find(p => p.id === id);
-            if (!product) return;
-
+            const p = products.find(x => x.id === id);
             const modal = document.getElementById('modal');
-            const contentDiv = document.getElementById('modal-content');
-            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            document.getElementById('modal-title').innerText = p.name;
 
-            title.innerText = product.name;
-
-            if (product.type === 'free') {
-                contentDiv.innerHTML = `
+            if(p.type === 'free') {
+                content.innerHTML = `
                     <div class="space-y-4">
                         <div class="bg-blue-900/30 border border-blue-500/30 p-3 rounded-lg flex items-start gap-3">
                             <i data-lucide="info" class="text-blue-400 shrink-0 mt-0.5"></i>
                             <p class="text-sm text-blue-200">
-                                <strong>Dica:</strong> Copie o código abaixo e cole no "Editor Pine" na parte inferior do seu TradingView.
+                                <strong>Dica:</strong> Copie o código abaixo e utilize no Editor Pine do TradingView.
                             </p>
                         </div>
-                        
-                        <div class="relative group">
-                            <textarea id="code-area-${product.id}" class="w-full h-48 bg-gray-950 text-green-400 p-4 rounded-lg font-mono text-xs border border-gray-700 focus:border-lunnar-primary outline-none resize-none" readonly>${product.code}</textarea>
-                            <button onclick="copyCode('code-area-${product.id}')" class="absolute top-2 right-2 bg-gray-800 hover:bg-gray-700 text-white p-2 rounded-md transition-colors border border-gray-600" title="Copiar Código">
-                                <i data-lucide="copy" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-
-                        <button onclick="copyCode('code-area-${product.id}')" class="w-full bg-lunnar-primary hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex justify-center items-center gap-2">
-                            <i data-lucide="copy"></i> Copiar Código Completo
+                        <textarea id="code-${p.id}" class="w-full h-40 bg-black/50 p-4 rounded-lg text-xs font-mono text-lunnar-primary border border-lunnar-primary/20 outline-none resize-none" readonly>${p.code}</textarea>
+                        <button onclick="copyCode('code-${p.id}')" class="w-full gold-gradient py-3 rounded-xl text-lunnar-dark font-bold flex justify-center items-center gap-2 hover:brightness-110 transition-all">
+                            <i data-lucide="copy" class="w-4 h-4"></i> Copiar Código Completo
                         </button>
                     </div>
                 `;
             } else {
-                const message = `Olá! Tenho interesse no indicador *${product.name}* da Loja Lunnar.`;
-                const waLink = `https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(message)}`;
-                const igLink = `https://instagram.com/${contactInfo.instagram}`;
-
-                contentDiv.innerHTML = `
+                content.innerHTML = `
                     <div class="text-center space-y-6">
-                        <div class="mx-auto w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mb-2">
-                             <i data-lucide="star" class="w-8 h-8 text-yellow-500 fill-current"></i>
+                        <div class="mx-auto w-16 h-16 bg-lunnar-primary/20 rounded-full flex items-center justify-center">
+                             <i data-lucide="star" class="w-8 h-8 text-lunnar-primary fill-current"></i>
                         </div>
-                        <div>
-                            <p class="text-gray-300 mb-1">Este é um indicador exclusivo Premium.</p>
-                            <p class="text-2xl font-bold text-white mb-4">Valor: ${formatCurrency(product.price)}</p>
-                            <p class="text-sm text-gray-400">Entre em contato diretamente comigo para adquirir e liberar seu acesso.</p>
+                        
+                        <div class="space-y-2">
+                            <p class="text-gray-300">Este é um indicador exclusivo Premium.</p>
+                            <div class="text-3xl font-bold text-white">Valor: ${formatCurrency(p.price)}</div>
+                            <p class="text-sm text-gray-400 max-w-xs mx-auto">Entre em contato diretamente comigo para adquirir e liberar seu acesso.</p>
                         </div>
 
                         <div class="space-y-3">
-                            <a href="${waLink}" target="_blank" class="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3 rounded-lg transition-colors flex justify-center items-center gap-2">
+                            <a href="https://wa.me/5582996519753?text=Quero+o+indicador+${encodeURIComponent(p.name)}" target="_blank" class="flex w-full bg-[#25D366] hover:bg-[#20bd5a] py-4 rounded-xl text-white font-bold justify-center items-center gap-2 transition-colors">
                                 <i data-lucide="message-circle" class="fill-current"></i> Comprar via WhatsApp
                             </a>
-                            <a href="${igLink}" target="_blank" class="block w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 rounded-lg transition-colors flex justify-center items-center gap-2">
+                            
+                            <a href="https://instagram.com/_vctr01_" target="_blank" class="flex w-full bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] py-4 rounded-xl text-white font-bold justify-center items-center gap-2 hover:opacity-90 transition-opacity">
                                 <i data-lucide="instagram"></i> Chamar no Instagram
                             </a>
                         </div>
                     </div>
                 `;
             }
-
             modal.classList.remove('hidden');
             lucide.createIcons();
         }
 
-        function closeModal() {
-            document.getElementById('modal').classList.add('hidden');
-        }
+        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
 
-        function copyCode(elementId) {
-            const copyText = document.getElementById(elementId);
-            
-            // Seleciona o texto
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* Para mobile */
-
-            // Copia usando execCommand (fallback robusto)
-            document.execCommand("copy");
-
-            // Fecha modal (opcional, mas mantive aberto para o usuário ver)
-            // closeModal();
-
-            // Mostra notificação Toast
+        function copyCode(id) {
+            const area = document.getElementById(id);
+            area.select();
+            document.execCommand('copy');
             const toast = document.getElementById('toast');
             toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
         }
 
-        // Inicializar
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCatalog();
-            lucide.createIcons();
-        });
-
+        renderCatalog();
     </script>
 </body>
 </html>
